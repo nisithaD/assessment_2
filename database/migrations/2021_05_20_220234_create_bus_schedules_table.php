@@ -15,11 +15,10 @@ class CreateBusSchedulesTable extends Migration
     {
         Schema::create('bus_schedules', function (Blueprint $table) {
             $table->id();
-            $table->integer('bus_route_id');
+            $table->foreignId('route_id')->constrained('routes')->onDelete('cascade');
             $table->boolean('direction');
-            $table->string('vehicle_number');
-            $table->timestamp('start_timestamp');
-            $table->timestamp('end_timestamp');
+            $table->timestamp('start_timestamp')->nullable();
+            $table->timestamp('end_timestamp')->nullable();
             $table->timestamps();
         });
     }
