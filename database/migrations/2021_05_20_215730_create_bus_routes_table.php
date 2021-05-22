@@ -15,7 +15,7 @@ class CreateBusRoutesTable extends Migration
     {
         Schema::create('bus_routes', function (Blueprint $table) {
             $table->id();
-            $table->integer('bus_id');
+            $table->integer('bus_id')->constrained('buses')->onDelete('cascade');
             $table->foreignId('route_id')->constrained('routes')->onDelete('cascade');
             $table->boolean('status');
             $table->timestamps();
