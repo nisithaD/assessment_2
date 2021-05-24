@@ -18,8 +18,6 @@ class CreateBusScheduleBookingsTable extends Migration
             $table->foreignId('bus_seat_id')->constrained('bus_seats')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('bus_schedule_id')->constrained('bus_schedules')->onDelete('cascade');
-            $table->integer('seat_number');
-            $table->float('price');
             $table->boolean('status');
             $table->timestamps();
         });

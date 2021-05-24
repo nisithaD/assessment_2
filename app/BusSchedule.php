@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class BusSchedule extends Model
 {
-    protected $fillable = ['route_id','direction','start_timestamp','end_timestamp'];
+    protected $fillable = ['id','route_id','direction','start_timestamp','end_timestamp'];
 
-    //get Route relation
-    public function getRouteRelation()
+    //get route relation
+    public function routeRelation()
     {
-        return $this->hasOne('App\Route','id','route_id');
+        return $this->hasMany('App\Route','id','route_id');
     }
 }

@@ -8,9 +8,9 @@ class BusSeat extends Model
 {
     protected $fillable = ['bus_id','seat_number','price'];
 
-    //get Route relation
-    public function getRouteRelation()
+    //get bus relation
+    public function getBusRelation()
     {
-        return $this->hasOne('App\Bus','id','bus_id');
+        return $this->hasMany('App\Bus','id','bus_id');
     }
 }

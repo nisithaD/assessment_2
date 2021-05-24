@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BusRoute extends Model
 {
-    protected $fillable = ['bus_id','route_id','status'];
+    protected $fillable = ['id','bus_id','route_id','status'];
 
     //get bus relation
     public function getBusRelation()
@@ -17,6 +17,6 @@ class BusRoute extends Model
     //get route relation
     public function getRouteRelation()
     {
-        return $this->hasOne('App\Route','id','route_id');
+        return $this->hasMany('App\Route','id','route_id');
     }
 }
